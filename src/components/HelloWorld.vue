@@ -1,12 +1,12 @@
 <template>
   <v-container>
-    <v-container align-start justify-center>
-      <draggable v-model="columns" group="columns" direction="vertical" style="min-height: 10px">
-        <v-flex v-for="col in columnsList" v-bind:key="col">
+    <v-layout align-start justify-center>
+      <draggable v-model="columns" tag="div" group="columns" direction="vertical" style="min-height: 10px">
+        <v-flex v-for="col in columnsList" v-bind:key="col" d-inline-flex style="width: 800px;">
           <column :id="col"/>
         </v-flex>
       </draggable>
-    </v-container>
+    </v-layout>
     <v-btn
         @click="addColumn"
         color="indigo"

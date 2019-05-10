@@ -1,4 +1,30 @@
-# Desafio task board
+# Desafio task board - Lucas Draichi
+
+## Project setup
+
+```
+npm i
+npm run serve
+```
+
+## Specs
+
+Tested on:
+- Ubuntu 16.04
+- Node 10.15.3
+- Vue-CLI 3.5.1
+
+## External libs
+
+- Vuetify
+- Vuex
+- Vue Dragger
+
+> Em `src/store/index.js:3` o seguinte `import 'es6-promise/auto'` é para dar suporte ao IE9+
+
+![Mockup](Screenshot.png)
+
+> Build na pasta `dist`
 
 ## Objetivo
 

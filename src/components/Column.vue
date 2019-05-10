@@ -19,6 +19,12 @@
     <v-list two-line>
       <v-subheader>
         Column id: {{ id }}
+        <v-btn icon @click="sortItems">
+          <v-icon>arrow_drop_down</v-icon>
+        </v-btn>
+        <v-btn icon @click="reverseItems">
+          <v-icon>arrow_drop_up</v-icon>
+        </v-btn>
       </v-subheader>
       <draggable v-model="items" group="items" style="min-height: 10px">
         <template v-for="(item, idx) in items">
@@ -57,8 +63,8 @@ export default {
   }),
   methods: {
     addItem () {
-      this.$store.commit('addIdCounter')
-      this.items.push({id: this.idCounter, title: this.itemName})
+      this.$store.commit('addItemIdCounter')
+      this.items.push({id: this.itemIdCounter, title: this.itemName})
       this.itemName = ''
     },
     removeItem (id) {
@@ -66,12 +72,18 @@ export default {
     },
     delColumn (id) {
       this.$store.commit('delColumn', id)
+    },
+    sortItems () {
+      this.items.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
+    },
+    reverseItems () {
+      this.items.sort((b,a) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
     }
   },
   computed: {
-    idCounter () {
-      return this.$store.getters.idCounter
+    itemIdCounter () {
+      return this.$store.getters.itemIdCounter
     }
-  },
+  }
 }
 </script>

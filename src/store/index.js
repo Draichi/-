@@ -8,7 +8,6 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  // actions,
   getters,
   mutations,
   state
